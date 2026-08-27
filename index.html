@@ -14,8 +14,20 @@
        in the same navy/gold instead - a deliberate size-based split, not an
        inconsistency. -->
   <link rel="icon" type="image/png" href="./favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-    <meta name="theme-color" content="#1B2A4A" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./touch-icon-v2.png" />
+  <meta name="theme-color" content="#1B2A4A" />
+  <!-- These four tags were the actual missing piece, found by comparing
+       against Dealtally's working index.html (same phone, same iOS,
+       favicon confirmed working on Home Screen). Without
+       apple-mobile-web-app-capable specifically, iOS can still render a
+       correct PREVIEW of the touch icon (since that's just normal page
+       rendering) while still falling back to a generic icon for the actual
+       Home Screen shortcut it creates - which matches exactly the symptom
+       reported. -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LedgerTally" />
 
   <script type="module" crossorigin src="./app.js"></script>
   <link rel="stylesheet" crossorigin href="./app.css" />
